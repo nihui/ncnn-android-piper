@@ -1,0 +1,88 @@
+7767517
+86 110
+Input                    in0                      0 1 in0
+Input                    in1                      0 1 in1
+Convolution1D            conv1d_17                1 1 in0 2 0=256 1=7 2=1 3=1 4=3 5=1 6=344064
+Convolution1D            conv1d_18                1 1 in1 3 0=256 1=1 2=1 3=1 4=0 5=1 6=131072
+BinaryOp                 add_0                    2 1 2 3 4 0=0
+ReLU                     leakyrelu_0              1 1 4 5 0=1.000000e-01
+Deconvolution1D          deconv1d_38              1 1 5 6 0=128 1=16 18=0 2=1 3=8 4=4 5=1 6=524288
+Split                    splitncnn_0              1 4 6 7 8 9 10
+ReLU                     leakyrelu_1              1 1 10 11 0=1.000000e-01
+Split                    splitncnn_1              1 3 11 12 13 14
+Convolution1D            conv1d_19                1 1 14 15 0=128 1=3 2=1 3=1 4=1 5=1 6=49152
+BinaryOp                 add_1                    2 1 15 7 16 0=0
+Split                    splitncnn_2              1 2 16 17 18
+ReLU                     leakyrelu_2              1 1 18 19 0=1.000000e-01
+Convolution1D            conv1d_20                1 1 19 20 0=128 1=3 2=2 3=1 4=2 5=1 6=49152
+Convolution1D            conv1d_21                1 1 13 21 0=128 1=5 2=2 3=1 4=4 5=1 6=81920
+BinaryOp                 add_2                    2 1 21 8 22 0=0
+Split                    splitncnn_3              1 2 22 23 24
+ReLU                     leakyrelu_3              1 1 24 25 0=1.000000e-01
+Convolution1D            conv1d_22                1 1 25 26 0=128 1=5 2=6 3=1 4=12 5=1 6=81920
+Convolution1D            conv1d_23                1 1 12 27 0=128 1=7 2=3 3=1 4=9 5=1 6=114688
+BinaryOp                 add_3                    2 1 27 9 28 0=0
+Split                    splitncnn_4              1 2 28 29 30
+ReLU                     leakyrelu_4              1 1 30 31 0=1.000000e-01
+Convolution1D            conv1d_24                1 1 31 32 0=128 1=7 2=12 3=1 4=36 5=1 6=114688
+BinaryOp                 add_4                    2 1 32 29 33 0=0
+BinaryOp                 add_5                    2 1 26 23 34 0=0
+BinaryOp                 add_6                    2 1 20 17 35 0=0
+BinaryOp                 add_7                    2 1 35 34 36 0=0
+BinaryOp                 add_8                    2 1 36 33 37 0=0
+BinaryOp                 div_9                    1 1 37 38 0=3 1=1 2=3.000000e+00
+ReLU                     leakyrelu_5              1 1 38 39 0=1.000000e-01
+Deconvolution1D          deconv1d_39              1 1 39 40 0=64 1=16 18=0 2=1 3=8 4=4 5=1 6=131072
+Split                    splitncnn_5              1 4 40 41 42 43 44
+ReLU                     leakyrelu_6              1 1 44 45 0=1.000000e-01
+Split                    splitncnn_6              1 3 45 46 47 48
+Convolution1D            conv1d_25                1 1 48 49 0=64 1=3 2=1 3=1 4=1 5=1 6=12288
+BinaryOp                 add_10                   2 1 49 41 50 0=0
+Split                    splitncnn_7              1 2 50 51 52
+ReLU                     leakyrelu_7              1 1 52 53 0=1.000000e-01
+Convolution1D            conv1d_26                1 1 53 54 0=64 1=3 2=2 3=1 4=2 5=1 6=12288
+Convolution1D            conv1d_27                1 1 47 55 0=64 1=5 2=2 3=1 4=4 5=1 6=20480
+BinaryOp                 add_11                   2 1 55 42 56 0=0
+Split                    splitncnn_8              1 2 56 57 58
+ReLU                     leakyrelu_8              1 1 58 59 0=1.000000e-01
+Convolution1D            conv1d_28                1 1 59 60 0=64 1=5 2=6 3=1 4=12 5=1 6=20480
+Convolution1D            conv1d_29                1 1 46 61 0=64 1=7 2=3 3=1 4=9 5=1 6=28672
+BinaryOp                 add_12                   2 1 61 43 62 0=0
+Split                    splitncnn_9              1 2 62 63 64
+ReLU                     leakyrelu_9              1 1 64 65 0=1.000000e-01
+Convolution1D            conv1d_30                1 1 65 66 0=64 1=7 2=12 3=1 4=36 5=1 6=28672
+BinaryOp                 add_13                   2 1 66 63 67 0=0
+BinaryOp                 add_14                   2 1 60 57 68 0=0
+BinaryOp                 add_15                   2 1 54 51 69 0=0
+BinaryOp                 add_16                   2 1 69 68 70 0=0
+BinaryOp                 add_17                   2 1 70 67 71 0=0
+BinaryOp                 div_18                   1 1 71 72 0=3 1=1 2=3.000000e+00
+ReLU                     leakyrelu_10             1 1 72 73 0=1.000000e-01
+Deconvolution1D          deconv1d_40              1 1 73 74 0=32 1=8 18=0 2=1 3=4 4=2 5=1 6=16384
+Split                    splitncnn_10             1 4 74 75 76 77 78
+ReLU                     leakyrelu_11             1 1 78 79 0=1.000000e-01
+Split                    splitncnn_11             1 3 79 80 81 82
+Convolution1D            conv1d_31                1 1 82 83 0=32 1=3 2=1 3=1 4=1 5=1 6=3072
+BinaryOp                 add_19                   2 1 83 75 84 0=0
+Split                    splitncnn_12             1 2 84 85 86
+ReLU                     leakyrelu_12             1 1 86 87 0=1.000000e-01
+Convolution1D            conv1d_32                1 1 87 88 0=32 1=3 2=2 3=1 4=2 5=1 6=3072
+Convolution1D            conv1d_33                1 1 81 89 0=32 1=5 2=2 3=1 4=4 5=1 6=5120
+BinaryOp                 add_20                   2 1 89 76 90 0=0
+Split                    splitncnn_13             1 2 90 91 92
+ReLU                     leakyrelu_13             1 1 92 93 0=1.000000e-01
+Convolution1D            conv1d_34                1 1 93 94 0=32 1=5 2=6 3=1 4=12 5=1 6=5120
+Convolution1D            conv1d_35                1 1 80 95 0=32 1=7 2=3 3=1 4=9 5=1 6=7168
+BinaryOp                 add_21                   2 1 95 77 96 0=0
+Split                    splitncnn_14             1 2 96 97 98
+ReLU                     leakyrelu_14             1 1 98 99 0=1.000000e-01
+Convolution1D            conv1d_36                1 1 99 100 0=32 1=7 2=12 3=1 4=36 5=1 6=7168
+BinaryOp                 add_22                   2 1 100 97 101 0=0
+BinaryOp                 add_23                   2 1 94 91 102 0=0
+BinaryOp                 add_24                   2 1 88 85 103 0=0
+BinaryOp                 add_25                   2 1 103 102 104 0=0
+BinaryOp                 add_26                   2 1 104 101 105 0=0
+BinaryOp                 div_27                   1 1 105 106 0=3 1=1 2=3.000000e+00
+ReLU                     leakyrelu_15             1 1 106 107 0=1.000000e-02
+Convolution1D            conv1d_37                1 1 107 108 0=1 1=7 2=1 3=1 4=3 5=0 6=224
+TanH                     tanh_16                  1 1 108 out0

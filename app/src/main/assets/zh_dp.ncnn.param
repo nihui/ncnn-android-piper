@@ -1,0 +1,187 @@
+7767517
+185 206
+Input                    in0                      0 1 in0
+Input                    in1                      0 1 in1
+Convolution1D            conv1d_24                1 1 in0 2 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Split                    splitncnn_0              1 2 2 3 4
+ConvolutionDepthWise1D   convdw1d_126             1 1 4 5 0=192 1=3 2=1 3=1 4=1 5=1 6=576 7=192
+Permute                  transpose_78             1 1 5 6 0=1
+LayerNorm                ln_44                    1 1 6 7 0=192 1=1.000000e-05 2=1
+Permute                  transpose_79             1 1 7 8 0=1
+GELU                     gelu_0                   1 1 8 9
+Convolution1D            conv1d_25                1 1 9 10 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_80             1 1 10 11 0=1
+LayerNorm                ln_45                    1 1 11 12 0=192 1=1.000000e-05 2=1
+Permute                  transpose_81             1 1 12 13 0=1
+GELU                     gelu_1                   1 1 13 14
+BinaryOp                 add_0                    2 1 3 14 15 0=0
+Split                    splitncnn_1              1 2 15 16 17
+ConvolutionDepthWise1D   convdw1d_127             1 1 17 18 0=192 1=3 2=3 3=1 4=3 5=1 6=576 7=192
+Permute                  transpose_82             1 1 18 19 0=1
+LayerNorm                ln_46                    1 1 19 20 0=192 1=1.000000e-05 2=1
+Permute                  transpose_83             1 1 20 21 0=1
+GELU                     gelu_2                   1 1 21 22
+Convolution1D            conv1d_26                1 1 22 23 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_84             1 1 23 24 0=1
+LayerNorm                ln_47                    1 1 24 25 0=192 1=1.000000e-05 2=1
+Permute                  transpose_85             1 1 25 26 0=1
+GELU                     gelu_3                   1 1 26 27
+BinaryOp                 add_1                    2 1 16 27 28 0=0
+Split                    splitncnn_2              1 2 28 29 30
+ConvolutionDepthWise1D   convdw1d_128             1 1 30 31 0=192 1=3 2=9 3=1 4=9 5=1 6=576 7=192
+Permute                  transpose_86             1 1 31 32 0=1
+LayerNorm                ln_48                    1 1 32 33 0=192 1=1.000000e-05 2=1
+Permute                  transpose_87             1 1 33 34 0=1
+GELU                     gelu_4                   1 1 34 35
+Convolution1D            conv1d_27                1 1 35 36 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_88             1 1 36 37 0=1
+LayerNorm                ln_49                    1 1 37 38 0=192 1=1.000000e-05 2=1
+Permute                  transpose_89             1 1 38 39 0=1
+GELU                     gelu_5                   1 1 39 40
+BinaryOp                 add_2                    2 1 29 40 41 0=0
+Convolution1D            conv1d_28                1 1 41 42 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Split                    splitncnn_3              1 3 42 43 44 45
+Flip                     flip_74                  1 1 in1 46 -23300=1,0
+Slice                    split_0                  1 2 46 47 48 -23300=2,1,1 1=0
+Split                    splitncnn_4              1 2 47 49 50
+Convolution1D            conv1d_29                1 1 50 51 0=192 1=1 2=1 3=1 4=0 5=1 6=192
+BinaryOp                 add_3                    2 1 51 43 52 0=0
+Split                    splitncnn_5              1 2 52 53 54
+ConvolutionDepthWise1D   convdw1d_129             1 1 54 55 0=192 1=3 2=1 3=1 4=1 5=1 6=576 7=192
+Permute                  transpose_90             1 1 55 56 0=1
+LayerNorm                ln_50                    1 1 56 57 0=192 1=1.000000e-05 2=1
+Permute                  transpose_91             1 1 57 58 0=1
+GELU                     gelu_6                   1 1 58 59
+Convolution1D            conv1d_30                1 1 59 60 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_92             1 1 60 61 0=1
+LayerNorm                ln_51                    1 1 61 62 0=192 1=1.000000e-05 2=1
+Permute                  transpose_93             1 1 62 63 0=1
+GELU                     gelu_7                   1 1 63 64
+BinaryOp                 add_4                    2 1 53 64 65 0=0
+Split                    splitncnn_6              1 2 65 66 67
+ConvolutionDepthWise1D   convdw1d_130             1 1 67 68 0=192 1=3 2=3 3=1 4=3 5=1 6=576 7=192
+Permute                  transpose_94             1 1 68 69 0=1
+LayerNorm                ln_52                    1 1 69 70 0=192 1=1.000000e-05 2=1
+Permute                  transpose_95             1 1 70 71 0=1
+GELU                     gelu_8                   1 1 71 72
+Convolution1D            conv1d_31                1 1 72 73 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_96             1 1 73 74 0=1
+LayerNorm                ln_53                    1 1 74 75 0=192 1=1.000000e-05 2=1
+Permute                  transpose_97             1 1 75 76 0=1
+GELU                     gelu_9                   1 1 76 77
+BinaryOp                 add_5                    2 1 66 77 78 0=0
+Split                    splitncnn_7              1 2 78 79 80
+ConvolutionDepthWise1D   convdw1d_131             1 1 80 81 0=192 1=3 2=9 3=1 4=9 5=1 6=576 7=192
+Permute                  transpose_98             1 1 81 82 0=1
+LayerNorm                ln_54                    1 1 82 83 0=192 1=1.000000e-05 2=1
+Permute                  transpose_99             1 1 83 84 0=1
+GELU                     gelu_10                  1 1 84 85
+Convolution1D            conv1d_32                1 1 85 86 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_100            1 1 86 87 0=1
+LayerNorm                ln_55                    1 1 87 88 0=192 1=1.000000e-05 2=1
+Permute                  transpose_101            1 1 88 89 0=1
+GELU                     gelu_11                  1 1 89 90
+BinaryOp                 add_6                    2 1 79 90 91 0=0
+Convolution1D            conv1d_33                1 1 91 92 0=29 1=1 2=1 3=1 4=0 5=1 6=5568
+Reshape                  reshape_71               1 1 92 93 0=-1 1=29 2=1
+Permute                  permute_68               1 1 93 94 0=1
+piper.train.vits.modules.piecewise_rational_quadratic_transform_module piecewise_rational_quadratic_transform 2 1 94 48 95
+Concat                   cat_0                    2 1 49 95 96 0=0
+Flip                     flip_75                  1 1 96 97 -23300=1,0
+Slice                    split_1                  1 2 97 98 99 -23300=2,1,1 1=0
+Split                    splitncnn_8              1 2 98 100 101
+Convolution1D            conv1d_34                1 1 101 102 0=192 1=1 2=1 3=1 4=0 5=1 6=192
+BinaryOp                 add_7                    2 1 102 44 103 0=0
+Split                    splitncnn_9              1 2 103 104 105
+ConvolutionDepthWise1D   convdw1d_132             1 1 105 106 0=192 1=3 2=1 3=1 4=1 5=1 6=576 7=192
+Permute                  transpose_102            1 1 106 107 0=1
+LayerNorm                ln_56                    1 1 107 108 0=192 1=1.000000e-05 2=1
+Permute                  transpose_103            1 1 108 109 0=1
+GELU                     gelu_12                  1 1 109 110
+Convolution1D            conv1d_35                1 1 110 111 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_104            1 1 111 112 0=1
+LayerNorm                ln_57                    1 1 112 113 0=192 1=1.000000e-05 2=1
+Permute                  transpose_105            1 1 113 114 0=1
+GELU                     gelu_13                  1 1 114 115
+BinaryOp                 add_8                    2 1 104 115 116 0=0
+Split                    splitncnn_10             1 2 116 117 118
+ConvolutionDepthWise1D   convdw1d_133             1 1 118 119 0=192 1=3 2=3 3=1 4=3 5=1 6=576 7=192
+Permute                  transpose_106            1 1 119 120 0=1
+LayerNorm                ln_58                    1 1 120 121 0=192 1=1.000000e-05 2=1
+Permute                  transpose_107            1 1 121 122 0=1
+GELU                     gelu_14                  1 1 122 123
+Convolution1D            conv1d_36                1 1 123 124 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_108            1 1 124 125 0=1
+LayerNorm                ln_59                    1 1 125 126 0=192 1=1.000000e-05 2=1
+Permute                  transpose_109            1 1 126 127 0=1
+GELU                     gelu_15                  1 1 127 128
+BinaryOp                 add_9                    2 1 117 128 129 0=0
+Split                    splitncnn_11             1 2 129 130 131
+ConvolutionDepthWise1D   convdw1d_134             1 1 131 132 0=192 1=3 2=9 3=1 4=9 5=1 6=576 7=192
+Permute                  transpose_110            1 1 132 133 0=1
+LayerNorm                ln_60                    1 1 133 134 0=192 1=1.000000e-05 2=1
+Permute                  transpose_111            1 1 134 135 0=1
+GELU                     gelu_16                  1 1 135 136
+Convolution1D            conv1d_37                1 1 136 137 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_112            1 1 137 138 0=1
+LayerNorm                ln_61                    1 1 138 139 0=192 1=1.000000e-05 2=1
+Permute                  transpose_113            1 1 139 140 0=1
+GELU                     gelu_17                  1 1 140 141
+BinaryOp                 add_10                   2 1 130 141 142 0=0
+Convolution1D            conv1d_38                1 1 142 143 0=29 1=1 2=1 3=1 4=0 5=1 6=5568
+Reshape                  reshape_72               1 1 143 144 0=-1 1=29 2=1
+Permute                  permute_69               1 1 144 145 0=1
+piper.train.vits.modules.piecewise_rational_quadratic_transform_module pnnx_unique_24           2 1 145 99 146
+Concat                   cat_1                    2 1 100 146 147 0=0
+Flip                     flip_76                  1 1 147 148 -23300=1,0
+Slice                    split_2                  1 2 148 149 150 -23300=2,1,1 1=0
+Split                    splitncnn_12             1 2 149 151 152
+Convolution1D            conv1d_39                1 1 152 153 0=192 1=1 2=1 3=1 4=0 5=1 6=192
+BinaryOp                 add_11                   2 1 153 45 154 0=0
+Split                    splitncnn_13             1 2 154 155 156
+ConvolutionDepthWise1D   convdw1d_135             1 1 156 157 0=192 1=3 2=1 3=1 4=1 5=1 6=576 7=192
+Permute                  transpose_114            1 1 157 158 0=1
+LayerNorm                ln_62                    1 1 158 159 0=192 1=1.000000e-05 2=1
+Permute                  transpose_115            1 1 159 160 0=1
+GELU                     gelu_18                  1 1 160 161
+Convolution1D            conv1d_40                1 1 161 162 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_116            1 1 162 163 0=1
+LayerNorm                ln_63                    1 1 163 164 0=192 1=1.000000e-05 2=1
+Permute                  transpose_117            1 1 164 165 0=1
+GELU                     gelu_19                  1 1 165 166
+BinaryOp                 add_12                   2 1 155 166 167 0=0
+Split                    splitncnn_14             1 2 167 168 169
+ConvolutionDepthWise1D   convdw1d_136             1 1 169 170 0=192 1=3 2=3 3=1 4=3 5=1 6=576 7=192
+Permute                  transpose_118            1 1 170 171 0=1
+LayerNorm                ln_64                    1 1 171 172 0=192 1=1.000000e-05 2=1
+Permute                  transpose_119            1 1 172 173 0=1
+GELU                     gelu_20                  1 1 173 174
+Convolution1D            conv1d_41                1 1 174 175 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_120            1 1 175 176 0=1
+LayerNorm                ln_65                    1 1 176 177 0=192 1=1.000000e-05 2=1
+Permute                  transpose_121            1 1 177 178 0=1
+GELU                     gelu_21                  1 1 178 179
+BinaryOp                 add_13                   2 1 168 179 180 0=0
+Split                    splitncnn_15             1 2 180 181 182
+ConvolutionDepthWise1D   convdw1d_137             1 1 182 183 0=192 1=3 2=9 3=1 4=9 5=1 6=576 7=192
+Permute                  transpose_122            1 1 183 184 0=1
+LayerNorm                ln_66                    1 1 184 185 0=192 1=1.000000e-05 2=1
+Permute                  transpose_123            1 1 185 186 0=1
+GELU                     gelu_22                  1 1 186 187
+Convolution1D            conv1d_42                1 1 187 188 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Permute                  transpose_124            1 1 188 189 0=1
+LayerNorm                ln_67                    1 1 189 190 0=192 1=1.000000e-05 2=1
+Permute                  transpose_125            1 1 190 191 0=1
+GELU                     gelu_23                  1 1 191 192
+BinaryOp                 add_14                   2 1 181 192 193 0=0
+Convolution1D            conv1d_43                1 1 193 194 0=29 1=1 2=1 3=1 4=0 5=1 6=5568
+Reshape                  reshape_73               1 1 194 195 0=-1 1=29 2=1
+Permute                  permute_70               1 1 195 196 0=1
+piper.train.vits.modules.piecewise_rational_quadratic_transform_module pnnx_unique_33           2 1 196 150 197
+Concat                   cat_2                    2 1 151 197 198 0=0
+Flip                     flip_77                  1 1 198 199 -23300=1,0
+MemoryData               pnnx_unique_34           0 1 200 0=1 1=2
+MemoryData               pnnx_fold_638            0 1 201 0=1 1=2
+BinaryOp                 sub_15                   2 1 199 200 202 0=1
+BinaryOp                 mul_16                   2 1 202 201 203 0=2
+Slice                    split_3                  1 2 203 out0 205 -23300=2,1,1 1=0

@@ -1,0 +1,231 @@
+7767517
+229 267
+Input                    in0                      0 1 in0
+Embed                    embed_49                 1 1 in0 1 0=192 1=256 2=0 3=49152
+BinaryOp                 mul_0                    1 1 1 2 0=2 1=1 2=1.385641e+01
+Permute                  transpose_110            1 1 2 3 0=1
+Split                    splitncnn_0              1 4 3 4 5 6 7
+Convolution1D            conv1d_12                1 1 7 8 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_13                1 1 6 9 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_14                1 1 5 10 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Reshape                  view_68                  1 1 8 11 0=-1 1=96 2=2
+Permute                  transpose_111            1 1 11 12 0=1
+Reshape                  view_69                  1 1 9 13 0=-1 1=96 2=2
+Permute                  transpose_112            1 1 13 14 0=1
+Reshape                  view_70                  1 1 10 15 0=-1 1=96 2=2
+BinaryOp                 div_1                    1 1 12 16 0=3 1=1 2=9.797959e+00
+Split                    splitncnn_1              1 2 16 17 18
+MatMul                   matmultransb_0           2 1 18 14 19 0=1
+MemoryData               pnnx_fold_134            0 1 20 0=9 1=96 2=1
+MatMul                   matmul_87                2 1 17 20 21
+piper.train.vits.attentions.relative_embeddings_k_module relative_embeddings_k    1 1 21 22
+BinaryOp                 add_2                    2 1 19 22 23 0=0
+Softmax                  softmax_6                1 1 23 24 0=2 1=1
+Split                    splitncnn_2              1 2 24 25 26
+MatMul                   matmultransb_1           2 1 26 15 27 0=1
+piper.train.vits.attentions.relative_embeddings_v_module relative_embeddings_v    1 1 25 28
+MemoryData               pnnx_fold_142            0 1 29 0=96 1=9 2=1
+MatMul                   matmul_89                2 1 28 29 30
+BinaryOp                 add_3                    2 1 27 30 31 0=0
+Permute                  transpose_115            1 1 31 32 0=1
+Reshape                  reshape_62               1 1 32 33 0=-1 1=192
+Convolution1D            conv1d_15                1 1 33 34 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+BinaryOp                 add_4                    2 1 4 34 35 0=0
+Permute                  transpose_116            1 1 35 36 0=1
+LayerNorm                ln_50                    1 1 36 37 0=192 1=1.000000e-05 2=1
+Permute                  transpose_117            1 1 37 38 0=1
+Split                    splitncnn_3              1 2 38 39 40
+Convolution1D            conv1drelu_0             1 1 40 41 0=768 1=3 2=1 3=1 4=1 5=1 6=442368 9=1
+Convolution1D            conv1d_17                1 1 41 42 0=192 1=3 2=1 3=1 4=1 5=1 6=442368
+BinaryOp                 add_5                    2 1 39 42 43 0=0
+Permute                  transpose_118            1 1 43 44 0=1
+LayerNorm                ln_51                    1 1 44 45 0=192 1=1.000000e-05 2=1
+Permute                  transpose_119            1 1 45 46 0=1
+Split                    splitncnn_4              1 4 46 47 48 49 50
+Convolution1D            conv1d_18                1 1 50 51 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_19                1 1 49 52 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_20                1 1 48 53 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Reshape                  view_71                  1 1 51 54 0=-1 1=96 2=2
+Permute                  transpose_120            1 1 54 55 0=1
+Reshape                  view_72                  1 1 52 56 0=-1 1=96 2=2
+Permute                  transpose_121            1 1 56 57 0=1
+Reshape                  view_73                  1 1 53 58 0=-1 1=96 2=2
+BinaryOp                 div_6                    1 1 55 59 0=3 1=1 2=9.797959e+00
+Split                    splitncnn_5              1 2 59 60 61
+MatMul                   matmultransb_2           2 1 61 57 62 0=1
+MemoryData               pnnx_fold_242            0 1 63 0=9 1=96 2=1
+MatMul                   matmul_91                2 1 60 63 64
+piper.train.vits.attentions.relative_embeddings_k_module pnnx_unique_5            1 1 64 65
+BinaryOp                 add_7                    2 1 62 65 66 0=0
+Softmax                  softmax_7                1 1 66 67 0=2 1=1
+Split                    splitncnn_6              1 2 67 68 69
+MatMul                   matmultransb_3           2 1 69 58 70 0=1
+piper.train.vits.attentions.relative_embeddings_v_module pnnx_unique_6            1 1 68 71
+MemoryData               pnnx_fold_250            0 1 72 0=96 1=9 2=1
+MatMul                   matmul_93                2 1 71 72 73
+BinaryOp                 add_8                    2 1 70 73 74 0=0
+Permute                  transpose_124            1 1 74 75 0=1
+Reshape                  reshape_63               1 1 75 76 0=-1 1=192
+Convolution1D            conv1d_21                1 1 76 77 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+BinaryOp                 add_9                    2 1 47 77 78 0=0
+Permute                  transpose_125            1 1 78 79 0=1
+LayerNorm                ln_52                    1 1 79 80 0=192 1=1.000000e-05 2=1
+Permute                  transpose_126            1 1 80 81 0=1
+Split                    splitncnn_7              1 2 81 82 83
+Convolution1D            conv1drelu_1             1 1 83 84 0=768 1=3 2=1 3=1 4=1 5=1 6=442368 9=1
+Convolution1D            conv1d_23                1 1 84 85 0=192 1=3 2=1 3=1 4=1 5=1 6=442368
+BinaryOp                 add_10                   2 1 82 85 86 0=0
+Permute                  transpose_127            1 1 86 87 0=1
+LayerNorm                ln_53                    1 1 87 88 0=192 1=1.000000e-05 2=1
+Permute                  transpose_128            1 1 88 89 0=1
+Split                    splitncnn_8              1 4 89 90 91 92 93
+Convolution1D            conv1d_24                1 1 93 94 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_25                1 1 92 95 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_26                1 1 91 96 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Reshape                  view_74                  1 1 94 97 0=-1 1=96 2=2
+Permute                  transpose_129            1 1 97 98 0=1
+Reshape                  view_75                  1 1 95 99 0=-1 1=96 2=2
+Permute                  transpose_130            1 1 99 100 0=1
+Reshape                  view_76                  1 1 96 101 0=-1 1=96 2=2
+BinaryOp                 div_11                   1 1 98 102 0=3 1=1 2=9.797959e+00
+Split                    splitncnn_9              1 2 102 103 104
+MatMul                   matmultransb_4           2 1 104 100 105 0=1
+MemoryData               pnnx_fold_350            0 1 106 0=9 1=96 2=1
+MatMul                   matmul_95                2 1 103 106 107
+piper.train.vits.attentions.relative_embeddings_k_module pnnx_unique_12           1 1 107 108
+BinaryOp                 add_12                   2 1 105 108 109 0=0
+Softmax                  softmax_8                1 1 109 110 0=2 1=1
+Split                    splitncnn_10             1 2 110 111 112
+MatMul                   matmultransb_5           2 1 112 101 113 0=1
+piper.train.vits.attentions.relative_embeddings_v_module pnnx_unique_13           1 1 111 114
+MemoryData               pnnx_fold_358            0 1 115 0=96 1=9 2=1
+MatMul                   matmul_97                2 1 114 115 116
+BinaryOp                 add_13                   2 1 113 116 117 0=0
+Permute                  transpose_133            1 1 117 118 0=1
+Reshape                  reshape_64               1 1 118 119 0=-1 1=192
+Convolution1D            conv1d_27                1 1 119 120 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+BinaryOp                 add_14                   2 1 90 120 121 0=0
+Permute                  transpose_134            1 1 121 122 0=1
+LayerNorm                ln_54                    1 1 122 123 0=192 1=1.000000e-05 2=1
+Permute                  transpose_135            1 1 123 124 0=1
+Split                    splitncnn_11             1 2 124 125 126
+Convolution1D            conv1drelu_2             1 1 126 127 0=768 1=3 2=1 3=1 4=1 5=1 6=442368 9=1
+Convolution1D            conv1d_29                1 1 127 128 0=192 1=3 2=1 3=1 4=1 5=1 6=442368
+BinaryOp                 add_15                   2 1 125 128 129 0=0
+Permute                  transpose_136            1 1 129 130 0=1
+LayerNorm                ln_55                    1 1 130 131 0=192 1=1.000000e-05 2=1
+Permute                  transpose_137            1 1 131 132 0=1
+Split                    splitncnn_12             1 4 132 133 134 135 136
+Convolution1D            conv1d_30                1 1 136 137 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_31                1 1 135 138 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_32                1 1 134 139 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Reshape                  view_77                  1 1 137 140 0=-1 1=96 2=2
+Permute                  transpose_138            1 1 140 141 0=1
+Reshape                  view_78                  1 1 138 142 0=-1 1=96 2=2
+Permute                  transpose_139            1 1 142 143 0=1
+Reshape                  view_79                  1 1 139 144 0=-1 1=96 2=2
+BinaryOp                 div_16                   1 1 141 145 0=3 1=1 2=9.797959e+00
+Split                    splitncnn_13             1 2 145 146 147
+MatMul                   matmultransb_6           2 1 147 143 148 0=1
+MemoryData               pnnx_fold_458            0 1 149 0=9 1=96 2=1
+MatMul                   matmul_99                2 1 146 149 150
+piper.train.vits.attentions.relative_embeddings_k_module pnnx_unique_19           1 1 150 151
+BinaryOp                 add_17                   2 1 148 151 152 0=0
+Softmax                  softmax_9                1 1 152 153 0=2 1=1
+Split                    splitncnn_14             1 2 153 154 155
+MatMul                   matmultransb_7           2 1 155 144 156 0=1
+piper.train.vits.attentions.relative_embeddings_v_module pnnx_unique_20           1 1 154 157
+MemoryData               pnnx_fold_466            0 1 158 0=96 1=9 2=1
+MatMul                   matmul_101               2 1 157 158 159
+BinaryOp                 add_18                   2 1 156 159 160 0=0
+Permute                  transpose_142            1 1 160 161 0=1
+Reshape                  reshape_65               1 1 161 162 0=-1 1=192
+Convolution1D            conv1d_33                1 1 162 163 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+BinaryOp                 add_19                   2 1 133 163 164 0=0
+Permute                  transpose_143            1 1 164 165 0=1
+LayerNorm                ln_56                    1 1 165 166 0=192 1=1.000000e-05 2=1
+Permute                  transpose_144            1 1 166 167 0=1
+Split                    splitncnn_15             1 2 167 168 169
+Convolution1D            conv1drelu_3             1 1 169 170 0=768 1=3 2=1 3=1 4=1 5=1 6=442368 9=1
+Convolution1D            conv1d_35                1 1 170 171 0=192 1=3 2=1 3=1 4=1 5=1 6=442368
+BinaryOp                 add_20                   2 1 168 171 172 0=0
+Permute                  transpose_145            1 1 172 173 0=1
+LayerNorm                ln_57                    1 1 173 174 0=192 1=1.000000e-05 2=1
+Permute                  transpose_146            1 1 174 175 0=1
+Split                    splitncnn_16             1 4 175 176 177 178 179
+Convolution1D            conv1d_36                1 1 179 180 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_37                1 1 178 181 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_38                1 1 177 182 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Reshape                  view_80                  1 1 180 183 0=-1 1=96 2=2
+Permute                  transpose_147            1 1 183 184 0=1
+Reshape                  view_81                  1 1 181 185 0=-1 1=96 2=2
+Permute                  transpose_148            1 1 185 186 0=1
+Reshape                  view_82                  1 1 182 187 0=-1 1=96 2=2
+BinaryOp                 div_21                   1 1 184 188 0=3 1=1 2=9.797959e+00
+Split                    splitncnn_17             1 2 188 189 190
+MatMul                   matmultransb_8           2 1 190 186 191 0=1
+MemoryData               pnnx_fold_566            0 1 192 0=9 1=96 2=1
+MatMul                   matmul_103               2 1 189 192 193
+piper.train.vits.attentions.relative_embeddings_k_module pnnx_unique_26           1 1 193 194
+BinaryOp                 add_22                   2 1 191 194 195 0=0
+Softmax                  softmax_10               1 1 195 196 0=2 1=1
+Split                    splitncnn_18             1 2 196 197 198
+MatMul                   matmultransb_9           2 1 198 187 199 0=1
+piper.train.vits.attentions.relative_embeddings_v_module pnnx_unique_27           1 1 197 200
+MemoryData               pnnx_fold_574            0 1 201 0=96 1=9 2=1
+MatMul                   matmul_105               2 1 200 201 202
+BinaryOp                 add_23                   2 1 199 202 203 0=0
+Permute                  transpose_151            1 1 203 204 0=1
+Reshape                  reshape_66               1 1 204 205 0=-1 1=192
+Convolution1D            conv1d_39                1 1 205 206 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+BinaryOp                 add_24                   2 1 176 206 207 0=0
+Permute                  transpose_152            1 1 207 208 0=1
+LayerNorm                ln_58                    1 1 208 209 0=192 1=1.000000e-05 2=1
+Permute                  transpose_153            1 1 209 210 0=1
+Split                    splitncnn_19             1 2 210 211 212
+Convolution1D            conv1drelu_4             1 1 212 213 0=768 1=3 2=1 3=1 4=1 5=1 6=442368 9=1
+Convolution1D            conv1d_41                1 1 213 214 0=192 1=3 2=1 3=1 4=1 5=1 6=442368
+BinaryOp                 add_25                   2 1 211 214 215 0=0
+Permute                  transpose_154            1 1 215 216 0=1
+LayerNorm                ln_59                    1 1 216 217 0=192 1=1.000000e-05 2=1
+Permute                  transpose_155            1 1 217 218 0=1
+Split                    splitncnn_20             1 4 218 219 220 221 222
+Convolution1D            conv1d_42                1 1 222 223 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_43                1 1 221 224 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Convolution1D            conv1d_44                1 1 220 225 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+Reshape                  view_83                  1 1 223 226 0=-1 1=96 2=2
+Permute                  transpose_156            1 1 226 227 0=1
+Reshape                  view_84                  1 1 224 228 0=-1 1=96 2=2
+Permute                  transpose_157            1 1 228 229 0=1
+Reshape                  view_85                  1 1 225 230 0=-1 1=96 2=2
+BinaryOp                 div_26                   1 1 227 231 0=3 1=1 2=9.797959e+00
+Split                    splitncnn_21             1 2 231 232 233
+MatMul                   matmultransb_10          2 1 233 229 234 0=1
+MemoryData               pnnx_fold_674            0 1 235 0=9 1=96 2=1
+MatMul                   matmul_107               2 1 232 235 236
+piper.train.vits.attentions.relative_embeddings_k_module pnnx_unique_33           1 1 236 237
+BinaryOp                 add_27                   2 1 234 237 238 0=0
+Softmax                  softmax_11               1 1 238 239 0=2 1=1
+Split                    splitncnn_22             1 2 239 240 241
+MatMul                   matmultransb_11          2 1 241 230 242 0=1
+piper.train.vits.attentions.relative_embeddings_v_module pnnx_unique_34           1 1 240 243
+MemoryData               pnnx_fold_682            0 1 244 0=96 1=9 2=1
+MatMul                   matmul_109               2 1 243 244 245
+BinaryOp                 add_28                   2 1 242 245 246 0=0
+Permute                  transpose_160            1 1 246 247 0=1
+Reshape                  reshape_67               1 1 247 248 0=-1 1=192
+Convolution1D            conv1d_45                1 1 248 249 0=192 1=1 2=1 3=1 4=0 5=1 6=36864
+BinaryOp                 add_29                   2 1 219 249 250 0=0
+Permute                  transpose_161            1 1 250 251 0=1
+LayerNorm                ln_60                    1 1 251 252 0=192 1=1.000000e-05 2=1
+Permute                  transpose_162            1 1 252 253 0=1
+Split                    splitncnn_23             1 2 253 254 255
+Convolution1D            conv1drelu_5             1 1 255 256 0=768 1=3 2=1 3=1 4=1 5=1 6=442368 9=1
+Convolution1D            conv1d_47                1 1 256 257 0=192 1=3 2=1 3=1 4=1 5=1 6=442368
+BinaryOp                 add_30                   2 1 254 257 258 0=0
+Permute                  transpose_163            1 1 258 259 0=1
+LayerNorm                ln_61                    1 1 259 260 0=192 1=1.000000e-05 2=1
+Permute                  transpose_164            1 1 260 261 0=1
+Split                    splitncnn_24             1 2 261 out0 263
+Convolution1D            conv1d_48                1 1 263 264 0=384 1=1 2=1 3=1 4=0 5=1 6=73728
+Slice                    split_0                  1 2 264 out1 out2 -23300=2,192,-233 1=0
