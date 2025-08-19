@@ -4,6 +4,8 @@
 
 piper - fast and local neural text-to-speech engine
 
+ncnn piper vits TTS 模型部署流水账 https://zhuanlan.zhihu.com/p/1941224089919426906
+
 This is a sample ncnn android project, it depends on ncnn library
 
 https://github.com/Tencent/ncnn
