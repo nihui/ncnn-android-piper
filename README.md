@@ -23,6 +23,10 @@ https://github.com/Tencent/ncnn/releases
 ### step2
 * Open this project with Android Studio, build it and enjoy!
 
+## some notes
+* This project uses a custom dictionary to implement phonemizer
+* If you need an espeak-ng phonemizer implementation(GPL), refer to https://github.com/nihui/ncnn-android-piper/issues/2
+
 ## screenshot
 ![](screenshot0.jpg)
 
