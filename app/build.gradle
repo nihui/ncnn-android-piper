@@ -1,20 +1,31 @@
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.json.JSONObject
+
 plugins {
-    id 'com.android.application'
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+}
+
+ext {
+    ncnnJniDir = file("src/main/jni")
+    ncnnTargetDirName = "ncnn-android-vulkan"
+    ncnnDir = file("${ncnnJniDir}/${ncnnTargetDirName}")
 }
 
 android {
     namespace 'com.tencent.piperncnn'
-    compileSdk 33
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.tencent.piperncnn"
         archivesBaseName = "$applicationId"
-
-        minSdk 24
+        minSdk 21
 
         externalNativeBuild {
             cmake {
-                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
+                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON",
+                          "-Dncnn_DIR_FROM_GRADLE=${project.ext.ncnnDir.absolutePath}"
             }
         }
     }
@@ -26,13 +37,78 @@ android {
         }
     }
 
-    dependencies {
-        implementation 'com.android.support:support-v4:24.0.0'
-    }
-
     packaging {
         jniLibs {
             useLegacyPackaging true
         }
     }
+}
+
+tasks.register('setupNcnn') {
+    group = "NCNN Setup"
+    description = "Downloads and extracts the latest NCNN library for Android Vulkan."
+    outputs.dir(project.ext.ncnnDir)
+    doLast {
+        println "==============================================="
+        println "Executing 'setupNcnn' task..."
+        def ncnnApiUrl = "https://api.github.com/repos/Tencent/ncnn/releases/latest"
+        def client = new OkHttpClient()
+        def request = new Request.Builder().url(ncnnApiUrl).build()
+        def downloadUrl = ""
+        def zipRootFolderName = ""
+
+        try {
+            client.newCall(request).execute().withCloseable { response ->
+                if (!response.isSuccessful()) {
+                    throw new IOException("Failed to query GitHub API: ${response}")
+                }
+                def responseBody = response.body().string()
+                def releaseInfo = new JSONObject(responseBody)
+                def assets = releaseInfo.getJSONArray("assets")
+
+                for (int i = 0; i < assets.length(); i++) {
+                    def asset = assets.getJSONObject(i)
+                    String name = asset.getString("name")
+                    if (name.contains("-android-vulkan.zip")) {
+                        downloadUrl = asset.getString("browser_download_url")
+                        zipRootFolderName = name.replace(".zip", "")
+                        println "Found latest NCNN release asset: ${name}"
+                        println "Download URL: ${downloadUrl}"
+                        println "Inferred zip root folder: ${zipRootFolderName}"
+                        break
+                    }
+                }
+            }
+        } catch (Exception e) {
+            throw new GradleException("Failed to get NCNN download URL from GitHub API. Please check your network. Error: ${e.message}")
+        }
+
+        if (downloadUrl.isEmpty()) {
+            throw new GradleException("Could not find 'ncnn-YYYYMMDD-android-vulkan.zip' in the latest release assets.")
+        }
+        def outputZip = file("${buildDir}/downloads/ncnn.zip")
+        outputZip.parentFile.mkdirs()
+        new URL(downloadUrl).withInputStream { i -> outputZip.withOutputStream { o -> o << i } }
+        println "Download complete: ${outputZip}"
+        println "Extracting ${outputZip} to ${project.ext.ncnnDir}..."
+        project.copy {
+            from(zipTree(outputZip))
+            into(project.ext.ncnnDir)
+            eachFile { file ->
+                file.path = file.path.replaceFirst("^${zipRootFolderName}/", "")
+            }
+            includeEmptyDirs = false
+        }
+
+        println "NCNN extracted successfully to ${project.ext.ncnnDir}"
+        println "==============================================="
+    }
+}
+
+tasks.named("preBuild").configure {
+    dependsOn("setupNcnn")
+}
+
+dependencies {
+
 }
