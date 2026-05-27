@@ -2,8 +2,8 @@ name: release-apk
 on: workflow_dispatch
 
 env:
-  NCNN_VERSION: 20260113
-  MESA_TURNIP_VERSION: 25.3.3
+  NCNN_VERSION: 20260526
+  MESA_TURNIP_VERSION: 26.1.1
   BUILD_TOOLS_VERSION: 36.0.0
 
 jobs:
