@@ -10,6 +10,11 @@ This is a sample ncnn android project, it depends on ncnn library
 
 https://github.com/Tencent/ncnn
 
+## Android compatibility
+
+The app supports Android 5.0 (API 21) and later. Audio playback uses OpenSL ES.
+The bundled Turnip driver has separate device and Android version requirements and cannot load on Android 5.0; CPU inference does not depend on it.
+
 ## android apk file download
 https://github.com/nihui/ncnn-android-piper/releases/latest
 
